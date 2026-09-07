@@ -5,10 +5,12 @@ import { PORTFOLIO_PROJECTS } from '../../../../core/data/portfolio-projects.dat
 import { RECOGNITIONS } from '../../../../core/data/recognitions.data';
 import { SITE_PROFILE } from '../../../../core/data/site-profile.data';
 import { PortfolioProject } from '../../../../core/models/portfolio-project.model';
+import { RevealOnScrollDirective } from '../../../../shared/directives/reveal-on-scroll.directive';
 
 @Component({
   selector: 'app-landing-page',
   standalone: true,
+  imports: [RevealOnScrollDirective],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

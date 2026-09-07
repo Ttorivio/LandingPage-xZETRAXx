@@ -24,7 +24,7 @@
 
   <main>
     <section id="inicio" class="hero">
-      <div class="hero__content">
+      <div class="hero__content" appRevealOnScroll>
         <p class="eyebrow">{{ profile.hero.eyebrow }}</p>
         <h1>{{ profile.brandName }}</h1>
         <p class="hero__subtitle">{{ profile.hero.subtitle }}</p>
@@ -58,7 +58,7 @@
         </dl>
       </div>
 
-      <div class="hero__visual" aria-hidden="true">
+      <div class="hero__visual" aria-hidden="true" appRevealOnScroll="120ms">
         <div class="wave-card">
           <div class="wave-card__screen">
             <img
@@ -76,12 +76,12 @@
 
     <section id="sobre-mi" class="section section--intro">
       <div class="section__inner section__grid">
-        <div>
+        <div appRevealOnScroll>
           <p class="section-kicker">Perfil profesional</p>
           <h2>Sobre mí</h2>
         </div>
 
-        <div class="section-copy">
+        <div class="section-copy" appRevealOnScroll="120ms">
           <p>
             {{ profile.fullName }} presenta su trabajo bajo la identidad {{ profile.brandName }}. Su portfolio reúne proyectos audiovisuales seleccionados, materiales de guion aprobados para publicación y vías de contacto profesional.
           </p>
@@ -101,15 +101,19 @@
 
     <section id="proyectos" class="section">
       <div class="section__inner">
-        <div class="section-heading">
+        <div class="section-heading" appRevealOnScroll>
           <p class="section-kicker">Selección inicial</p>
           <h2>Proyectos seleccionados</h2>
           <p>Los dos proyectos se muestran como borrador hasta confirmar sinopsis, roles, créditos e imágenes finales.</p>
         </div>
 
         <div class="project-grid">
-          @for (project of projects; track project.id) {
-            <article class="project-card" [class.project-card--draft]="project.status === 'draft'">
+          @for (project of projects; track project.id; let index = $index) {
+            <article
+              class="project-card"
+              [class.project-card--draft]="project.status === 'draft'"
+              [appRevealOnScroll]="(index * 120) + 'ms'"
+            >
               <div class="project-card__media">
                 <img
                   [src]="project.imageUrl"
@@ -176,15 +180,15 @@
 
     <section id="trayectoria" class="section section--muted">
       <div class="section__inner">
-        <div class="section-heading">
+        <div class="section-heading" appRevealOnScroll>
           <p class="section-kicker">Hitos</p>
           <h2>Trayectoria y reconocimientos</h2>
           <p>Estos bloques funcionan como demostración visual hasta confirmar los datos oficiales de premios, categorías, años y respaldos.</p>
         </div>
 
         <div class="timeline">
-          @for (recognition of recognitions; track recognition.title) {
-            <article class="timeline-item">
+          @for (recognition of recognitions; track recognition.title; let index = $index) {
+            <article class="timeline-item" [appRevealOnScroll]="(index * 120) + 'ms'">
               <div class="timeline-item__status">
                 {{ recognition.status === 'pending' ? 'Pendiente de datos oficiales' : 'Confirmado' }}
               </div>
@@ -203,12 +207,12 @@
 
     <section class="section section--documents">
       <div class="section__inner section__grid">
-        <div>
+        <div appRevealOnScroll>
           <p class="section-kicker">Material descargable</p>
           <h2>CV y guiones</h2>
         </div>
 
-        <div class="section-copy">
+        <div class="section-copy" appRevealOnScroll="120ms">
           <p>
             El currículum y los fragmentos de guion se incorporarán como PDF cuando el cliente confirme qué archivos pueden hacerse públicos.
           </p>
@@ -234,7 +238,7 @@
 
     <section id="contacto" class="section contact-section">
       <div class="section__inner contact-layout">
-        <div>
+        <div appRevealOnScroll>
           <p class="section-kicker">Contacto profesional</p>
           <h2>Conversemos sobre un proyecto audiovisual</h2>
           <p>
@@ -242,7 +246,7 @@
           </p>
         </div>
 
-        <address class="contact-list">
+        <address class="contact-list" appRevealOnScroll="120ms">
           <a
             class="contact-item contact-item--strong"
             [href]="profile.contact.whatsappUrl"
