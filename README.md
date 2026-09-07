@@ -39,6 +39,28 @@ npm run build
 
 El resultado se genera en `dist/landing-page-guionista/`.
 
+## Docker
+
+Construir y levantar la landing con Nginx:
+
+```bash
+docker compose up -d --build
+```
+
+La web queda disponible en `http://localhost:8080/`.
+
+Ver estado del contenedor:
+
+```bash
+docker compose ps
+```
+
+Detener el contenedor:
+
+```bash
+docker compose down
+```
+
 ## Estructura principal
 
 ```text

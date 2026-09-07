@@ -1,0 +1,9 @@
+services:
+  landing-page:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: landing-page-xzetraxx
+    ports:
+      - "8080:80"
+    restart: unless-stopped
