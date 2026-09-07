@@ -18,7 +18,7 @@
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 24px;
+  gap: 34px;
   min-height: 72px;
   padding: 12px max(24px, calc((100vw - 1180px) / 2));
   border-bottom: 1px solid var(--color-border);
@@ -27,13 +27,32 @@
 }
 
 .brand-link {
-  display: grid;
-  gap: 2px;
-  min-width: 172px;
+  display: inline-grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  min-width: 226px;
   color: var(--color-text);
 }
 
-.brand-link span {
+.brand-link img {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(57, 255, 20, 0.42);
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow:
+    0 0 18px rgba(57, 255, 20, 0.22),
+    0 0 28px rgba(255, 43, 214, 0.12);
+}
+
+.brand-link__copy {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.brand-link__copy span {
   font-size: 1rem;
   font-weight: 800;
   text-shadow:
@@ -41,7 +60,7 @@
     0 0 28px rgba(0, 229, 255, 0.18);
 }
 
-.brand-link small {
+.brand-link__copy small {
   color: var(--color-muted);
   font-size: 0.74rem;
   line-height: 1.2;
@@ -51,17 +70,52 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 6px 18px;
+  gap: 8px 30px;
   color: var(--color-muted);
   font-size: 0.9rem;
 }
 
-.site-nav a,
+.site-nav a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 2px;
+  transition:
+    color 180ms ease,
+    text-shadow 180ms ease;
+}
+
+.site-nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: 2px;
+  left: 0;
+  height: 1px;
+  content: "";
+  background: var(--color-pink);
+  box-shadow: 0 0 14px rgba(255, 43, 214, 0.75);
+  opacity: 0;
+  transform: scaleX(0.28);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.site-nav a:hover {
+  color: var(--color-pink);
+  text-shadow: 0 0 16px rgba(255, 43, 214, 0.72);
+}
+
+.site-nav a:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
 .site-footer a {
   transition: color 180ms ease;
 }
 
-.site-nav a:hover,
 .site-footer a:hover {
   color: var(--color-text);
 }
@@ -105,9 +159,17 @@
   box-shadow: 0 0 26px rgba(57, 255, 20, 0.2);
 }
 
+.site-header .button--primary:hover {
+  border-color: var(--color-pink);
+  background: var(--color-pink);
+  color: var(--color-bg);
+  box-shadow: 0 0 26px rgba(255, 43, 214, 0.32);
+}
+
 .button--secondary {
-  border-color: rgba(244, 241, 234, 0.42);
+  border-color: rgba(255, 43, 214, 0.5);
   background: rgba(255, 43, 214, 0.09);
+  box-shadow: 0 0 24px rgba(255, 43, 214, 0.12);
 }
 
 .button--ghost:hover,
@@ -407,6 +469,10 @@
   font-size: 0.88rem;
 }
 
+.specialty-list li:nth-child(even) {
+  border-color: rgba(255, 43, 214, 0.42);
+}
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -423,6 +489,13 @@
 
 .project-card--draft {
   border-color: rgba(57, 255, 20, 0.42);
+}
+
+.project-card--draft:nth-child(even) {
+  border-color: rgba(255, 43, 214, 0.42);
+  box-shadow:
+    0 0 0 1px rgba(255, 43, 214, 0.08),
+    var(--shadow-soft);
 }
 
 .project-card__media {
@@ -544,10 +617,14 @@
   display: flex;
   min-width: 0;
   flex-direction: column;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(57, 255, 20, 0.42);
   border-radius: 8px;
   padding: 24px;
   background: rgba(244, 241, 234, 0.035);
+}
+
+.timeline-item:nth-child(even) {
+  border-color: rgba(255, 43, 214, 0.34);
 }
 
 .timeline-item__status {
@@ -562,6 +639,11 @@
   font-size: 0.78rem;
   font-weight: 800;
   text-transform: uppercase;
+}
+
+.timeline-item:nth-child(even) .timeline-item__status {
+  border-color: rgba(255, 43, 214, 0.5);
+  color: var(--color-pink);
 }
 
 .timeline-item p,
@@ -612,6 +694,10 @@
   transition:
     border-color 180ms ease,
     background 180ms ease;
+}
+
+.contact-item:nth-child(even) {
+  border-color: rgba(255, 43, 214, 0.28);
 }
 
 .contact-item:hover {
@@ -695,6 +781,7 @@
 @media (max-width: 920px) {
   .site-header {
     grid-template-columns: 1fr auto;
+    gap: 16px 24px;
   }
 
   .site-nav {
@@ -754,8 +841,12 @@
   }
 
   .site-nav {
-    gap: 6px 12px;
+    gap: 6px 18px;
     font-size: 0.82rem;
+  }
+
+  .site-nav a {
+    min-height: 30px;
   }
 
   .button {
