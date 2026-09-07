@@ -1,0 +1,72 @@
+:root {
+  color-scheme: dark;
+  --color-bg: #050509;
+  --color-surface: #0d0f16;
+  --color-surface-soft: #14111d;
+  --color-text: #f7f7fb;
+  --color-muted: #b9b5c8;
+  --color-border: rgba(247, 247, 251, 0.16);
+  --color-accent: #39ff14;
+  --color-accent-contrast: #031105;
+  --color-teal: #00e5ff;
+  --color-pink: #ff2bd6;
+  --color-violet: #7128ff;
+  --color-focus: #39ff14;
+  --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.48);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  letter-spacing: 0;
+}
+
+img,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

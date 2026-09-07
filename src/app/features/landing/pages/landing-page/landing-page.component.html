@@ -1,0 +1,316 @@
+<div class="site-shell">
+  <header class="site-header">
+    <a class="brand-link" href="#inicio" aria-label="Ir al inicio">
+      <span>{{ profile.brandName }}</span>
+      <small>{{ profile.fullName }}</small>
+    </a>
+
+    <nav class="site-nav" aria-label="Navegación principal">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#trayectoria">Trayectoria</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <a
+      class="button button--compact button--primary"
+      [href]="profile.contact.whatsappUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      WhatsApp
+    </a>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="hero__content">
+        <p class="eyebrow">{{ profile.hero.eyebrow }}</p>
+        <h1>{{ profile.brandName }}</h1>
+        <p class="hero__subtitle">{{ profile.hero.subtitle }}</p>
+        <p class="hero__presentation">{{ profile.hero.presentation }}</p>
+
+        <div class="hero__actions" aria-label="Acciones principales">
+          <a class="button button--primary" href="#proyectos">Ver proyectos</a>
+          <a
+            class="button button--secondary"
+            [href]="profile.contact.whatsappUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Hablemos por WhatsApp
+          </a>
+        </div>
+
+        <dl class="hero__meta" aria-label="Datos profesionales">
+          <div>
+            <dt>Base</dt>
+            <dd>{{ profile.location }}</dd>
+          </div>
+          <div>
+            <dt>Perfil</dt>
+            <dd>{{ profile.profession }}</dd>
+          </div>
+          <div>
+            <dt>Trabajo</dt>
+            <dd>{{ profile.availability }}</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="hero__visual" aria-hidden="true">
+        <div class="wave-card">
+          <div class="wave-card__screen">
+            <img
+              [src]="profile.hero.profileImageUrl"
+              [alt]="profile.hero.profileImageAlt"
+              width="900"
+              height="900"
+              fetchpriority="high"
+            >
+          </div>
+          <div class="wave-card__name">{{ profile.channelName }}</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre-mi" class="section section--intro">
+      <div class="section__inner section__grid">
+        <div>
+          <p class="section-kicker">Perfil profesional</p>
+          <h2>Sobre mí</h2>
+        </div>
+
+        <div class="section-copy">
+          <p>
+            {{ profile.fullName }} presenta su trabajo bajo la identidad {{ profile.brandName }}. Su portfolio reúne proyectos audiovisuales seleccionados, materiales de guion aprobados para publicación y vías de contacto profesional.
+          </p>
+          <p>
+            La biografía definitiva queda pendiente de aprobación del cliente. Este prototipo mantiene una presentación neutral basada en los datos confirmados del relevamiento.
+          </p>
+
+          <ul class="specialty-list" aria-label="Áreas de trabajo">
+            <li>Guion audiovisual</li>
+            <li>Edición de video</li>
+            <li>Contenido para marcas y productoras</li>
+            <li>Colaboración remota</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyectos" class="section">
+      <div class="section__inner">
+        <div class="section-heading">
+          <p class="section-kicker">Selección inicial</p>
+          <h2>Proyectos seleccionados</h2>
+          <p>Los dos proyectos se muestran como borrador hasta confirmar sinopsis, roles, créditos e imágenes finales.</p>
+        </div>
+
+        <div class="project-grid">
+          @for (project of projects; track project.id) {
+            <article class="project-card" [class.project-card--draft]="project.status === 'draft'">
+              <div class="project-card__media">
+                <img
+                  [src]="project.imageUrl"
+                  [alt]="project.imageAlt"
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                  (error)="useProjectFallbackImage($event, project)"
+                >
+                <button
+                  class="play-button"
+                  type="button"
+                  [attr.aria-label]="'Reproducir video de ' + project.title"
+                  (click)="openVideo(project)"
+                >
+                  <span aria-hidden="true"></span>
+                </button>
+              </div>
+
+              <div class="project-card__body">
+                <div class="project-card__meta">
+                  <span>{{ project.year }}</span>
+                  @if (project.duration) {
+                    <span>{{ project.duration }}</span>
+                  }
+                  <span>{{ project.status === 'draft' ? 'Borrador' : 'Confirmado' }}</span>
+                </div>
+
+                <h3>{{ project.title }}</h3>
+                <p class="project-type">{{ project.type }}</p>
+                <p>{{ project.description }}</p>
+
+                @if (project.roles.length > 0) {
+                  <ul class="role-list" aria-label="Roles confirmados">
+                    @for (role of project.roles; track role) {
+                      <li>{{ role }}</li>
+                    }
+                  </ul>
+                } @else {
+                  <p class="pending-note">Roles pendientes de confirmación.</p>
+                }
+
+                <div class="project-card__actions">
+                  <button class="button button--primary" type="button" (click)="openVideo(project)">
+                    Reproducir
+                  </button>
+                  @if (project.videoUrl) {
+                    <a
+                      class="button button--ghost"
+                      [href]="project.videoUrl"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Ver en YouTube
+                    </a>
+                  }
+                </div>
+              </div>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="trayectoria" class="section section--muted">
+      <div class="section__inner">
+        <div class="section-heading">
+          <p class="section-kicker">Hitos</p>
+          <h2>Trayectoria y reconocimientos</h2>
+          <p>Estos bloques funcionan como demostración visual hasta confirmar los datos oficiales de premios, categorías, años y respaldos.</p>
+        </div>
+
+        <div class="timeline">
+          @for (recognition of recognitions; track recognition.title) {
+            <article class="timeline-item">
+              <div class="timeline-item__status">
+                {{ recognition.status === 'pending' ? 'Pendiente de datos oficiales' : 'Confirmado' }}
+              </div>
+              <h3>{{ recognition.title }}</h3>
+              <p>{{ recognition.context }}</p>
+              <ul>
+                @for (detail of recognition.details; track detail) {
+                  <li>{{ detail }}</li>
+                }
+              </ul>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--documents">
+      <div class="section__inner section__grid">
+        <div>
+          <p class="section-kicker">Material descargable</p>
+          <h2>CV y guiones</h2>
+        </div>
+
+        <div class="section-copy">
+          <p>
+            El currículum y los fragmentos de guion se incorporarán como PDF cuando el cliente confirme qué archivos pueden hacerse públicos.
+          </p>
+
+          <div class="document-actions">
+            @if (profile.documents.cvUrl) {
+              <a
+                class="button button--primary"
+                [href]="profile.documents.cvUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Descargar CV
+              </a>
+            } @else {
+              <span class="button button--disabled" aria-disabled="true">CV pendiente de carga</span>
+            }
+            <span class="button button--disabled" aria-disabled="true">Guiones pendientes</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="section contact-section">
+      <div class="section__inner contact-layout">
+        <div>
+          <p class="section-kicker">Contacto profesional</p>
+          <h2>Conversemos sobre un proyecto audiovisual</h2>
+          <p>
+            WhatsApp es el canal principal. También están disponibles el correo profesional y el canal de YouTube como referencias públicas.
+          </p>
+        </div>
+
+        <address class="contact-list">
+          <a
+            class="contact-item contact-item--strong"
+            [href]="profile.contact.whatsappUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>WhatsApp</span>
+            <strong>{{ profile.contact.whatsappDisplay }}</strong>
+          </a>
+          <a class="contact-item" [href]="'mailto:' + profile.contact.email">
+            <span>Correo</span>
+            <strong>{{ profile.contact.email }}</strong>
+          </a>
+          <a
+            class="contact-item"
+            [href]="profile.contact.youtubeUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>YouTube</span>
+            <strong>{{ profile.channelName }} · @xZETRAXx</strong>
+          </a>
+          @if (profile.contact.linkedinUrl) {
+            <a
+              class="contact-item"
+              [href]="profile.contact.linkedinUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>LinkedIn</span>
+              <strong>Perfil profesional</strong>
+            </a>
+          }
+        </address>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>{{ profile.brandName }} — {{ profile.fullName }}</span>
+    <a
+      [href]="profile.contact.youtubeVideosUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Ver canal de YouTube
+    </a>
+  </footer>
+</div>
+
+@if (activeProject(); as project) {
+  <div class="video-modal" role="dialog" aria-modal="true" [attr.aria-label]="'Video de ' + project.title" (click)="closeVideo()">
+    <div class="video-modal__panel" (click)="$event.stopPropagation()">
+      <button class="video-modal__close" type="button" aria-label="Cerrar video" (click)="closeVideo()">
+        &times;
+      </button>
+
+      <div class="video-frame">
+        @if (activeEmbedUrl(); as embedUrl) {
+          <iframe
+            [src]="embedUrl"
+            [title]="'Reproductor de ' + project.title"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        }
+      </div>
+    </div>
+  </div>
+}
