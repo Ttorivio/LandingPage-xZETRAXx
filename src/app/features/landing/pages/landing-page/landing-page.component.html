@@ -259,12 +259,12 @@
             <span>WhatsApp</span>
             <strong>{{ profile.contact.whatsappDisplay }}</strong>
           </a>
-          <a class="contact-item" [href]="'mailto:' + profile.contact.email">
+          <a class="contact-item contact-item--email" [href]="'mailto:' + profile.contact.email">
             <span>Correo</span>
             <strong>{{ profile.contact.email }}</strong>
           </a>
           <a
-            class="contact-item"
+            class="contact-item contact-item--youtube"
             [href]="profile.contact.youtubeUrl"
             target="_blank"
             rel="noopener noreferrer"
