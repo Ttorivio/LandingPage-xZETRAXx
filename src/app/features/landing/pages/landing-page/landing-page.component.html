@@ -10,8 +10,9 @@
 
     <nav class="site-nav" aria-label="Navegación principal">
       <a href="#sobre-mi">Sobre mí</a>
+      <a href="#servicios">Servicios</a>
       <a href="#proyectos">Proyectos</a>
-      <a href="#trayectoria">Trayectoria</a>
+      <a href="#cv">CV</a>
       <a href="#contacto">Contacto</a>
     </nav>
 
@@ -21,7 +22,7 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      WhatsApp
+      Contame tu idea
     </a>
   </header>
 
@@ -79,25 +80,45 @@
 
     <section id="sobre-mi" class="section section--intro">
       <div class="section__inner section__grid">
-        <div appRevealOnScroll>
+        <div>
           <p class="section-kicker">Perfil profesional</p>
           <h2>Sobre mí</h2>
+          <img
+            class="about-illustration"
+            src="images/imagencuadradadefinitiva_sobremi.png"
+            alt="Iconos de guion, edición y contenido digital"
+          />
         </div>
 
         <div class="section-copy" appRevealOnScroll="120ms">
-          <p>
-            {{ profile.fullName }} presenta su trabajo bajo la identidad {{ profile.brandName }}. Su portfolio reúne proyectos audiovisuales seleccionados, materiales de guion aprobados para publicación y vías de contacto profesional.
-          </p>
-          <p>
-            La biografía definitiva queda pendiente de aprobación del cliente. Este prototipo mantiene una presentación neutral basada en los datos confirmados del relevamiento.
-          </p>
+          @for (paragraph of profile.biography; track paragraph) {
+            <p>{{ paragraph }}</p>
+          }
 
-          <ul class="specialty-list" aria-label="Áreas de trabajo">
-            <li>Guion audiovisual</li>
-            <li>Edición de video</li>
-            <li>Contenido para marcas y productoras</li>
-            <li>Colaboración remota</li>
+          <ul class="specialty-list" aria-label="Áreas profesionales">
+            @for (specialty of profile.specialties; track specialty) {
+              <li>{{ specialty }}</li>
+            }
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios" class="section section--services">
+      <div class="section__inner">
+        <div class="section-heading" appRevealOnScroll>
+          <p class="section-kicker">Servicios</p>
+          <h2>Contenido digital con estructura, ritmo e identidad</h2>
+          <p>{{ profile.servicesIntro }}</p>
+        </div>
+
+        <div class="services-grid">
+          @for (service of profile.services; track service.title; let index = $index) {
+            <article class="service-card" [appRevealOnScroll]="(index * 90) + 'ms'">
+              <h3>{{ service.title }}</h3>
+              <p>{{ service.description }}</p>
+            </article>
+          }
         </div>
       </div>
     </section>
@@ -105,9 +126,9 @@
     <section id="proyectos" class="section">
       <div class="section__inner">
         <div class="section-heading" appRevealOnScroll>
-          <p class="section-kicker">Selección inicial</p>
+          <p class="section-kicker">Portfolio</p>
           <h2>Proyectos seleccionados</h2>
-          <p>Los dos proyectos se muestran como borrador hasta confirmar sinopsis, roles, créditos e imágenes finales.</p>
+          <p>Piezas publicadas en el canal ZETRAX, reunidas como primeras referencias visibles del portfolio.</p>
         </div>
 
         <div class="project-grid">
@@ -142,7 +163,6 @@
                   @if (project.duration) {
                     <span>{{ project.duration }}</span>
                   }
-                  <span>{{ project.status === 'draft' ? 'Borrador' : 'Confirmado' }}</span>
                 </div>
 
                 <h3>{{ project.title }}</h3>
@@ -155,8 +175,6 @@
                       <li>{{ role }}</li>
                     }
                   </ul>
-                } @else {
-                  <p class="pending-note">Roles pendientes de confirmación.</p>
                 }
 
                 <div class="project-card__actions">
@@ -181,71 +199,48 @@
       </div>
     </section>
 
-    <section id="trayectoria" class="section section--muted">
-      <div class="section__inner">
-        <div class="section-heading" appRevealOnScroll>
-          <p class="section-kicker">Hitos</p>
-          <h2>Trayectoria y reconocimientos</h2>
-          <p>Estos bloques funcionan como demostración visual hasta confirmar los datos oficiales de premios, categorías, años y respaldos.</p>
-        </div>
+    @if (profile.documents.cvUrl) {
+      <section id="cv" class="section section--documents">
+        <div class="section__inner section__grid">
+          <div appRevealOnScroll>
+            <p class="section-kicker">CV profesional</p>
+            <h2>Currículum</h2>
+          </div>
 
-        <div class="timeline">
-          @for (recognition of recognitions; track recognition.title; let index = $index) {
-            <article class="timeline-item" [appRevealOnScroll]="(index * 120) + 'ms'">
-              <div class="timeline-item__status">
-                {{ recognition.status === 'pending' ? 'Pendiente de datos oficiales' : 'Confirmado' }}
-              </div>
-              <h3>{{ recognition.title }}</h3>
-              <p>{{ recognition.context }}</p>
-              <ul>
-                @for (detail of recognition.details; track detail) {
-                  <li>{{ detail }}</li>
-                }
-              </ul>
-            </article>
-          }
-        </div>
-      </div>
-    </section>
+          <div class="section-copy" appRevealOnScroll="120ms">
+            <p>
+              Podés revisar el CV en el navegador o descargar una copia en PDF.
+            </p>
 
-    <section class="section section--documents">
-      <div class="section__inner section__grid">
-        <div appRevealOnScroll>
-          <p class="section-kicker">Material descargable</p>
-          <h2>CV y guiones</h2>
-        </div>
-
-        <div class="section-copy" appRevealOnScroll="120ms">
-          <p>
-            El currículum y los fragmentos de guion se incorporarán como PDF cuando el cliente confirme qué archivos pueden hacerse públicos.
-          </p>
-
-          <div class="document-actions">
-            @if (profile.documents.cvUrl) {
+            <div class="document-actions">
               <a
                 class="button button--primary"
                 [href]="profile.documents.cvUrl"
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                Ver CV
+              </a>
+              <a
+                class="button button--secondary"
+                [href]="profile.documents.cvUrl"
+                [attr.download]="profile.documents.cvDownloadName || ''"
+              >
                 Descargar CV
               </a>
-            } @else {
-              <span class="button button--disabled" aria-disabled="true">CV pendiente de carga</span>
-            }
-            <span class="button button--disabled" aria-disabled="true">Guiones pendientes</span>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    }
 
     <section id="contacto" class="section contact-section">
       <div class="section__inner contact-layout">
         <div appRevealOnScroll>
           <p class="section-kicker">Contacto profesional</p>
-          <h2>Conversemos sobre un proyecto audiovisual</h2>
+          <h2>Conversemos sobre contenido digital</h2>
           <p>
-            WhatsApp es el canal principal. También están disponibles el correo profesional y el canal de YouTube como referencias públicas.
+            WhatsApp es el canal principal para conversar ideas, guiones y edición. También están disponibles el correo profesional y el canal de YouTube como referencias públicas.
           </p>
         </div>
 
@@ -289,7 +284,7 @@
   </main>
 
   <footer class="site-footer">
-    <span>{{ profile.brandName }} — {{ profile.fullName }}</span>
+    <span>{{ profile.brandName }} · {{ profile.fullName }}</span>
     <a
       [href]="profile.contact.youtubeVideosUrl"
       target="_blank"

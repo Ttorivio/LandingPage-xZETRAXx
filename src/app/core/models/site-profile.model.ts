@@ -1,5 +1,10 @@
 import { ContentStatus } from './content-status.model';
 
+export interface SiteService {
+  title: string;
+  description: string;
+}
+
 export interface SiteProfile {
   brandName: string;
   channelName: string;
@@ -14,6 +19,10 @@ export interface SiteProfile {
     profileImageUrl: string;
     profileImageAlt: string;
   };
+  biography: readonly string[];
+  specialties: readonly string[];
+  servicesIntro: string;
+  services: readonly SiteService[];
   contact: {
     email: string;
     whatsappDisplay: string;
@@ -24,6 +33,7 @@ export interface SiteProfile {
   };
   documents: {
     cvUrl?: string;
+    cvDownloadName?: string;
   };
 }
 

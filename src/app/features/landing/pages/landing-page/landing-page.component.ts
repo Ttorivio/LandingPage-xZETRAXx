@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, HostListener, computed, inject, sig
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 import { PORTFOLIO_PROJECTS } from '../../../../core/data/portfolio-projects.data';
-import { RECOGNITIONS } from '../../../../core/data/recognitions.data';
 import { SITE_PROFILE } from '../../../../core/data/site-profile.data';
 import { PortfolioProject } from '../../../../core/models/portfolio-project.model';
 import { RevealOnScrollDirective } from '../../../../shared/directives/reveal-on-scroll.directive';
@@ -20,7 +19,6 @@ export class LandingPageComponent {
 
   readonly profile = SITE_PROFILE;
   readonly projects = PORTFOLIO_PROJECTS.filter((project) => project.featured);
-  readonly recognitions = RECOGNITIONS;
   readonly activeProject = signal<PortfolioProject | null>(null);
   readonly activeEmbedUrl = computed<SafeResourceUrl | null>(() => {
     const project = this.activeProject();

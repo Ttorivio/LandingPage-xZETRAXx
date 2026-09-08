@@ -1,6 +1,6 @@
 # Landing Page Guionista
 
-Portfolio web profesional para `xZETRAXx` — Juan Sebastián Peredo Molina, licenciado en Comunicación Audiovisual, guionista y editor de video en Santa Cruz, Bolivia.
+Portfolio web profesional para `xZETRAXx`, Juan Sebastián Peredo Molina, licenciado en Comunicación Audiovisual, guionista y editor para contenido digital.
 
 ## Stack
 
@@ -72,7 +72,7 @@ src/
     features/
       landing/    Página principal de la landing
 public/
-  documents/      CV y guiones PDF autorizados
+  documents/      PDFs autorizados
   images/         Fotos, afiches y material visual propio
 ```
 
@@ -80,7 +80,7 @@ public/
 
 - Perfil, contacto, canales y textos generales: `src/app/core/data/site-profile.data.ts`.
 - Proyectos seleccionados: `src/app/core/data/portfolio-projects.data.ts`.
-- Reconocimientos pendientes o confirmados: `src/app/core/data/recognitions.data.ts`.
+- Reconocimientos por validar o confirmados: `src/app/core/data/recognitions.data.ts`.
 - Modelos de datos: `src/app/core/models/`.
 - Imagen de perfil usada en la portada: `public/images/zetrax-profile.jpg`.
 
@@ -88,7 +88,7 @@ Los proyectos y reconocimientos que todavía no estén aprobados por el cliente 
 
 ## Archivos estáticos
 
-- CV definitivo: colocar en `public/documents/` con un nombre profesional, por ejemplo `juan-sebastian-peredo-cv.pdf`, y actualizar `documents.cvUrl` en `site-profile.data.ts`.
+- CV definitivo: ubicado en `public/documents/` y enlazado desde `documents.cvUrl` en `site-profile.data.ts`.
 - Guiones autorizados: colocar los PDF en `public/documents/` y enlazarlos desde los proyectos o desde una futura sección de documentos.
 - Imágenes propias: colocar fotos, afiches o fotogramas en `public/images/` y reemplazar las miniaturas remotas en `portfolio-projects.data.ts`.
 - Si cambia la imagen del canal, reemplazar `public/images/zetrax-profile.jpg` o actualizar `hero.profileImageUrl` en `site-profile.data.ts`.
@@ -98,7 +98,7 @@ Los proyectos y reconocimientos que todavía no estén aprobados por el cliente 
 Antes de publicar:
 
 - Confirmar los dos proyectos destacados y sus textos definitivos.
-- Recibir CV, foto profesional, afiches o fotogramas autorizados.
+- Recibir foto profesional, afiches o fotogramas autorizados.
 - Confirmar roles, créditos y reconocimientos oficiales.
 - Agregar dominio canónico cuando exista dominio definitivo.
 - Revisar la landing en mobile, tablet y desktop.

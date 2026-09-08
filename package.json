@@ -1,7 +1,7 @@
 {
   "name": "landing-page-guionista",
   "version": "1.0.0",
-  "description": "Landing page profesional para xZETRAXx, guionista y editor audiovisual.",
+  "description": "Landing page profesional para xZETRAXx, guionista y editor para contenido digital.",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 127.0.0.1",
