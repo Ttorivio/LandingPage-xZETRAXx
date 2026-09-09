@@ -1,5 +1,27 @@
 import { SiteProfile } from '../models/site-profile.model';
 
+const FEISAL_CERTIFICATE = {
+  title: 'Selecci\u00f3n oficial \u2014 13.\u00aa Muestra FEISAL',
+  description:
+    'El cortometraje Salvia, con participaci\u00f3n de Sebasti\u00e1n Peredo Molina, fue seleccionado para representar a Diakonia\u2013Universidad Cat\u00f3lica Boliviana \u201cSan Pablo\u201d en la 13.\u00aa Muestra FEISAL 2024\u20132025. Esta muestra re\u00fane producciones de carreras audiovisuales de distintos pa\u00edses de Am\u00e9rica Latina y promueve la circulaci\u00f3n de nuevas obras y el intercambio entre instituciones de formaci\u00f3n cinematogr\u00e1fica de la regi\u00f3n.',
+  shortDescription:
+    'Salvia fue seleccionado para representar a Diakonia\u2013Universidad Cat\u00f3lica Boliviana \u201cSan Pablo\u201d en la 13.\u00aa Muestra FEISAL, un espacio de exhibici\u00f3n e intercambio que re\u00fane producciones audiovisuales estudiantiles de Am\u00e9rica Latina.',
+  highlights: 'SALVIA \u00b7 2024\u20132025 \u00b7 REPRESENTACI\u00d3N INSTITUCIONAL',
+  imageUrl: 'images/certificadoFEISAL.jpg',
+  imageAlt: 'Certificado de selecci\u00f3n de Salvia para la 13.\u00aa Muestra FEISAL 2024\u20132025.'
+};
+
+const SAMPLE_CERTIFICATE = {
+  title: 'Muestra — certificación futura',
+  description:
+    'Este contenido es un ejemplo visual con datos inventados para mostrar cómo se vería una segunda certificación junto a la selección FEISAL.',
+  shortDescription:
+    'Tarjeta de ejemplo para una futura certificación o reconocimiento profesional.',
+  highlights: 'MUESTRA · DATOS DE PRUEBA · NO OFICIAL',
+  imageUrl: 'images/certificadoFEISAL.jpg',
+  imageAlt: 'Imagen provisional usada para mostrar una futura tarjeta de certificación.'
+};
+
 const whatsappMessage = encodeURIComponent(
   'Hola, Sebastián. Vi tu portfolio y quiero contarte una idea para contenido digital.'
 );
@@ -62,6 +84,18 @@ export const SITE_PROFILE: SiteProfile = {
   },
   documents: {
     cvUrl: 'documents/CV%20ATS%20Juan%20Sebastian%20Peredo%20Molina%20V2%20(1).pdf',
-    cvDownloadName: 'CV Juan Sebastian Peredo Molina.pdf'
+    cvDownloadName: 'CV Juan Sebastian Peredo Molina.pdf',
+    certificates: [FEISAL_CERTIFICATE, SAMPLE_CERTIFICATE], /*
+      {
+        title: 'SelecciÃ³n oficial â€” 13.Âª Muestra FEISAL',
+        description:
+          'El cortometraje Salvia, con participaciÃ³n de SebastiÃ¡n Peredo Molina, fue seleccionado para representar a Diakoniaâ€“Universidad CatÃ³lica Boliviana “San Pablo” en la 13.Âª Muestra FEISAL 2024â€“2025. Esta muestra reÃºne producciones de carreras audiovisuales de distintos paÃ­ses de AmÃ©rica Latina y promueve la circulaciÃ³n de nuevas obras y el intercambio entre instituciones de formaciÃ³n cinematogrÃ¡fica de la regiÃ³n.',
+        shortDescription:
+          'Salvia fue seleccionado para representar a Diakoniaâ€“Universidad CatÃ³lica Boliviana “San Pablo” en la 13.Âª Muestra FEISAL, un espacio de exhibiciÃ³n e intercambio que reÃºne producciones audiovisuales estudiantiles de AmÃ©rica Latina.',
+        highlights: 'SALVIA Â· 2024â€“2025 Â· REPRESENTACIÃ“N INSTITUCIONAL',
+        imageUrl: 'images/certificadoFEISAL.jpg',
+        imageAlt: 'Certificado de selecciÃ³n de Salvia para la 13.Âª Muestra FEISAL 2024â€“2025.'
+      }
+    ] */
   }
 };

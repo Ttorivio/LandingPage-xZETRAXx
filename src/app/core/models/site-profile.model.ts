@@ -5,6 +5,15 @@ export interface SiteService {
   description: string;
 }
 
+export interface SiteCertificate {
+  title: string;
+  description: string;
+  shortDescription: string;
+  highlights: string;
+  imageUrl: string;
+  imageAlt: string;
+}
+
 export interface SiteProfile {
   brandName: string;
   channelName: string;
@@ -34,6 +43,7 @@ export interface SiteProfile {
   documents: {
     cvUrl?: string;
     cvDownloadName?: string;
+    certificates: readonly SiteCertificate[];
   };
 }
 

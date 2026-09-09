@@ -13,6 +13,7 @@
       <a href="#servicios">Servicios</a>
       <a href="#proyectos">Proyectos</a>
       <a href="#cv">CV</a>
+      <a href="#certificaciones">Certificaciones</a>
       <a href="#contacto">Contacto</a>
     </nav>
 
@@ -202,15 +203,15 @@
 
     @if (profile.documents.cvUrl) {
       <section id="cv" class="section section--documents">
-        <div class="section__inner section__grid">
-          <div appRevealOnScroll>
+        <div class="section__inner">
+          <div class="section-heading" appRevealOnScroll>
             <p class="section-kicker">CV profesional</p>
             <h2>Currículum</h2>
           </div>
 
           <div class="section-copy" appRevealOnScroll="120ms">
             <p>
-              Podés revisar el CV en el navegador o descargar una copia en PDF.
+              Puedes revisar el CV en el navegador o descargar una copia en PDF.
             </p>
 
             <div class="document-actions">
@@ -229,6 +230,81 @@
               >
                 Descargar CV
               </a>
+            </div>
+
+            @if (false && profile.documents.certificates.length) {
+              <div class="certificate-grid">
+                @for (certificate of profile.documents.certificates; track certificate.title; let index = $index) {
+                  <article class="certificate-card" [appRevealOnScroll]="(index * 120) + 'ms'">
+                    <a
+                      class="certificate-card__image-link"
+                      [href]="certificate.imageUrl"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        class="certificate-card__image"
+                        [src]="certificate.imageUrl"
+                        [alt]="certificate.imageAlt"
+                      />
+                    </a>
+                    <div class="certificate-card__body">
+                      <p class="certificate-card__eyebrow">Certificado</p>
+                      <h3>{{ certificate.title }}</h3>
+                      <p class="certificate-card__highlights">{{ certificate.highlights }}</p>
+                      <p>{{ certificate.shortDescription }}</p>
+                      <details class="certificate-card__details">
+                        <summary>Ver descripción completa</summary>
+                        <p>{{ certificate.description }}</p>
+                      </details>
+                    </div>
+                  </article>
+                }
+              </div>
+            }
+          </div>
+        </div>
+      </section>
+    }
+
+    @if (profile.documents.certificates.length) {
+      <section id="certificaciones" class="section section--certifications">
+        <div class="section__inner">
+          <div class="section-heading" appRevealOnScroll>
+            <p class="section-kicker">CERTIFICACIONES</p>
+            <h2>Selecciones y reconocimientos</h2>
+          </div>
+
+          <div class="section-copy" appRevealOnScroll="120ms">
+            <div class="certificate-grid">
+              @for (certificate of profile.documents.certificates; track certificate.title; let index = $index) {
+                <article class="certificate-card" [appRevealOnScroll]="(index * 120) + 'ms'">
+                  <a
+                    class="certificate-card__image-link"
+                    [href]="certificate.imageUrl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      class="certificate-card__image"
+                      [src]="certificate.imageUrl"
+                      [alt]="certificate.imageAlt"
+                    />
+                  </a>
+                  <div class="certificate-card__body">
+                    <p class="certificate-card__eyebrow">Certificado</p>
+                    <h3>{{ certificate.title }}</h3>
+                    <p class="certificate-card__highlights">{{ certificate.highlights }}</p>
+                    <p>{{ certificate.shortDescription }}</p>
+                    <details class="certificate-card__details">
+                      <summary>Ver descripcion completa</summary>
+                      <div class="certificate-card__details-content">
+                        <p>{{ certificate.description }}</p>
+                      </div>
+                    </details>
+                  </div>
+                </article>
+              }
             </div>
           </div>
         </div>
