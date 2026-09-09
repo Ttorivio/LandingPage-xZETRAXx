@@ -12,6 +12,7 @@ export interface SiteCertificate {
   highlights: string;
   imageUrl: string;
   imageAlt: string;
+  documentUrl?: string;
 }
 
 export interface SiteProfile {

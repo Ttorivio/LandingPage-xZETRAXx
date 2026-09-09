@@ -206,12 +206,12 @@
         <div class="section__inner">
           <div class="section-heading" appRevealOnScroll>
             <p class="section-kicker">CV profesional</p>
-            <h2>Currículum</h2>
+            <h2>Curr&iacute;culum</h2>
           </div>
 
           <div class="section-copy" appRevealOnScroll="120ms">
             <p>
-              Puedes revisar el CV en el navegador o descargar una copia en PDF.
+              Conoc&eacute; su formaci&oacute;n, experiencia y recorrido profesional en guion, edici&oacute;n y producci&oacute;n de contenidos audiovisuales.
             </p>
 
             <div class="document-actions">
@@ -236,18 +236,27 @@
               <div class="certificate-grid">
                 @for (certificate of profile.documents.certificates; track certificate.title; let index = $index) {
                   <article class="certificate-card" [appRevealOnScroll]="(index * 120) + 'ms'">
-                    <a
-                      class="certificate-card__image-link"
-                      [href]="certificate.imageUrl"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        class="certificate-card__image"
-                        [src]="certificate.imageUrl"
-                        [alt]="certificate.imageAlt"
-                      />
-                    </a>
+                    @if (certificate.imageUrl) {
+                      <a
+                        class="certificate-card__image-link"
+                        [href]="certificate.documentUrl || certificate.imageUrl"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          class="certificate-card__image"
+                          [src]="certificate.imageUrl"
+                          [alt]="certificate.imageAlt"
+                        />
+                      </a>
+                    } @else if (certificate.documentUrl) {
+                      <div class="certificate-card__document-preview">
+                        <iframe
+                          [src]="previewDocument(certificate.documentUrl)"
+                          [title]="'Vista previa de ' + certificate.title"
+                        ></iframe>
+                      </div>
+                    }
                     <div class="certificate-card__body">
                       <p class="certificate-card__eyebrow">Certificado</p>
                       <h3>{{ certificate.title }}</h3>
@@ -263,6 +272,28 @@
               </div>
             }
           </div>
+
+          <a
+            class="cv-profile-card"
+            [href]="profile.documents.cvUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            appRevealOnScroll="120ms"
+          >
+            <div class="cv-profile-card__photo">
+              <img
+                src="images/foto%20estilo%20cv%20peredo.jpeg"
+                alt="Retrato profesional de Sebastian Peredo Molina"
+              />
+            </div>
+            <div class="cv-profile-card__content">
+              <p class="cv-profile-card__name">Juan Sebasti&aacute;n Peredo Molina</p>
+              <p class="cv-profile-card__role">Guionista y editor audiovisual</p>
+              <p>Licenciado en Comunicaci&oacute;n Audiovisual</p>
+              <p>Guion · Edici&oacute;n · Musicalizaci&oacute;n</p>
+              <p>Santa Cruz, Bolivia</p>
+            </div>
+          </a>
         </div>
       </section>
     }
@@ -279,18 +310,27 @@
             <div class="certificate-grid">
               @for (certificate of profile.documents.certificates; track certificate.title; let index = $index) {
                 <article class="certificate-card" [appRevealOnScroll]="(index * 120) + 'ms'">
-                  <a
-                    class="certificate-card__image-link"
-                    [href]="certificate.imageUrl"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img
-                      class="certificate-card__image"
-                      [src]="certificate.imageUrl"
-                      [alt]="certificate.imageAlt"
-                    />
-                  </a>
+                  @if (certificate.imageUrl) {
+                    <a
+                      class="certificate-card__image-link"
+                      [href]="certificate.documentUrl || certificate.imageUrl"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        class="certificate-card__image"
+                        [src]="certificate.imageUrl"
+                        [alt]="certificate.imageAlt"
+                      />
+                    </a>
+                  } @else if (certificate.documentUrl) {
+                    <div class="certificate-card__document-preview">
+                      <iframe
+                        [src]="previewDocument(certificate.documentUrl)"
+                        [title]="'Vista previa de ' + certificate.title"
+                      ></iframe>
+                    </div>
+                  }
                   <div class="certificate-card__body">
                     <p class="certificate-card__eyebrow">Certificado</p>
                     <h3>{{ certificate.title }}</h3>

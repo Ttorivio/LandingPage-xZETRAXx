@@ -44,6 +44,10 @@ export class LandingPageComponent {
     this.activeProject.set(null);
   }
 
+  previewDocument(url: string): SafeResourceUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(`${url}#zoom=page-width`);
+  }
+
   useProjectFallbackImage(event: Event, project: PortfolioProject): void {
     const image = event.target as HTMLImageElement;
 
