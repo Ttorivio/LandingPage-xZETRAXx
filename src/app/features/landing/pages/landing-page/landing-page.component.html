@@ -125,7 +125,7 @@
       </div>
     </section>
 
-    <section id="proyectos" class="section">
+    <section id="proyectos" class="section section--projects">
       <div class="section__inner">
         <div class="section-heading" appRevealOnScroll>
           <p class="section-kicker">Portfolio</p>
@@ -149,14 +149,6 @@
                   loading="lazy"
                   (error)="useProjectFallbackImage($event, project)"
                 >
-                <button
-                  class="play-button"
-                  type="button"
-                  [attr.aria-label]="'Reproducir video de ' + project.title"
-                  (click)="openVideo(project)"
-                >
-                  <span aria-hidden="true"></span>
-                </button>
               </div>
 
               <div class="project-card__body">
