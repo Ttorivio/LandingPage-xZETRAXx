@@ -8,7 +8,8 @@ const FEISAL_CERTIFICATE = {
     'Salvia fue seleccionado para representar a Diakonia\u2013Universidad Cat\u00f3lica Boliviana \u201cSan Pablo\u201d en la 13.\u00aa Muestra FEISAL, un espacio de exhibici\u00f3n e intercambio que re\u00fane producciones audiovisuales estudiantiles de Am\u00e9rica Latina.',
   highlights: 'SALVIA \u00b7 2024\u20132025 \u00b7 REPRESENTACI\u00d3N INSTITUCIONAL',
   imageUrl: 'images/certificadoFEISAL.jpg',
-  imageAlt: 'Certificado de selecci\u00f3n de Salvia para la 13.\u00aa Muestra FEISAL 2024\u20132025.'
+  imageAlt: 'Certificado de selecci\u00f3n de Salvia para la 13.\u00aa Muestra FEISAL 2024\u20132025.',
+  documentUrl: 'images/certificadoFEISAL.jpg'
 };
 
 const SAMPLE_CERTIFICATE = {

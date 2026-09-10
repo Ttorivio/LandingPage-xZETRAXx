@@ -1,0 +1,28 @@
+<article
+  class="certificate-card"
+  [class.certificate-card--pink]="accent === 'pink'"
+  role="button"
+  tabindex="0"
+  (click)="requestDetails($event)"
+  (keydown.enter)="requestDetails($event)"
+  (keydown.space)="requestDetails($event)"
+>
+  <div class="certificate-card__image-wrap">
+    <img
+      class="certificate-card__image"
+      [src]="certificate.imageUrl"
+      [alt]="certificate.imageAlt"
+      [style.object-position]="imagePosition"
+    />
+  </div>
+
+  <div class="certificate-card__content">
+    <p class="certificate-card__eyebrow">Certificado</p>
+    <h3>{{ certificate.title }}</h3>
+    <p class="certificate-card__highlights">{{ certificate.highlights }}</p>
+    <p class="certificate-card__summary">{{ certificate.shortDescription }}</p>
+    <button class="certificate-card__action" type="button" (click)="requestDetails($event)">
+      Ver detalles <span aria-hidden="true">&rarr;</span>
+    </button>
+  </div>
+</article>

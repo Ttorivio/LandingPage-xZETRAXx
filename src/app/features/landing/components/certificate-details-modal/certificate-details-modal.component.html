@@ -1,0 +1,45 @@
+<div
+  class="certificate-modal"
+  [class.certificate-modal--pink]="accent === 'pink'"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="certificate-modal-title"
+  (click)="close()"
+>
+  <section class="certificate-modal__panel" (click)="$event.stopPropagation()">
+    <button
+      #closeButton
+      class="certificate-modal__close"
+      type="button"
+      aria-label="Cerrar detalles del certificado"
+      (click)="close()"
+    >
+      &times;
+    </button>
+
+    <div class="certificate-modal__image-wrap">
+      <img
+        [src]="certificate.imageUrl"
+        [alt]="certificate.imageAlt"
+      />
+    </div>
+
+    <div class="certificate-modal__content">
+      <p class="certificate-modal__eyebrow">Certificado</p>
+      <h2 id="certificate-modal-title">{{ certificate.title }}</h2>
+      <p class="certificate-modal__highlights">{{ certificate.highlights }}</p>
+      <p>{{ certificate.description }}</p>
+
+      @if (certificate.documentUrl) {
+        <a
+          class="button button--secondary"
+          [href]="certificate.documentUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ver certificado
+        </a>
+      }
+    </div>
+  </section>
+</div>

@@ -298,46 +298,16 @@
             <h2>Selecciones y reconocimientos</h2>
           </div>
 
-          <div class="section-copy" appRevealOnScroll="120ms">
-            <div class="certificate-grid">
-              @for (certificate of profile.documents.certificates; track certificate.title; let index = $index) {
-                <article class="certificate-card" [appRevealOnScroll]="(index * 120) + 'ms'">
-                  @if (certificate.imageUrl) {
-                    <a
-                      class="certificate-card__image-link"
-                      [href]="certificate.documentUrl || certificate.imageUrl"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        class="certificate-card__image"
-                        [src]="certificate.imageUrl"
-                        [alt]="certificate.imageAlt"
-                      />
-                    </a>
-                  } @else if (certificate.documentUrl) {
-                    <div class="certificate-card__document-preview">
-                      <iframe
-                        [src]="previewDocument(certificate.documentUrl)"
-                        [title]="'Vista previa de ' + certificate.title"
-                      ></iframe>
-                    </div>
-                  }
-                  <div class="certificate-card__body">
-                    <p class="certificate-card__eyebrow">Certificado</p>
-                    <h3>{{ certificate.title }}</h3>
-                    <p class="certificate-card__highlights">{{ certificate.highlights }}</p>
-                    <p>{{ certificate.shortDescription }}</p>
-                    <details class="certificate-card__details">
-                      <summary>Ver descripcion completa</summary>
-                      <div class="certificate-card__details-content">
-                        <p>{{ certificate.description }}</p>
-                      </div>
-                    </details>
-                  </div>
-                </article>
-              }
-            </div>
+          <div class="certificate-grid" appRevealOnScroll="120ms">
+            @for (certificate of profile.documents.certificates; track certificate.title; let index = $index) {
+              <app-certificate-card
+                [certificate]="certificate"
+                [accent]="index === 0 || index === 3 ? 'pink' : 'green'"
+                [imagePosition]="certificateImagePositions[index]"
+                [appRevealOnScroll]="(index * 120) + 'ms'"
+                (detailsRequested)="openCertificate(certificate, $event, index === 0 || index === 3 ? 'pink' : 'green')"
+              />
+            }
           </div>
         </div>
       </section>
@@ -424,4 +394,12 @@
       </div>
     </div>
   </div>
+}
+
+@if (activeCertificate(); as certificate) {
+      <app-certificate-details-modal
+        [certificate]="certificate"
+        [accent]="activeCertificateAccent()"
+        (closeRequested)="closeCertificate()"
+      />
 }

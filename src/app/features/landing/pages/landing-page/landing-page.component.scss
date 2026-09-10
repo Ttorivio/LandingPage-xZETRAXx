@@ -683,7 +683,8 @@
 .project-card:hover {
   transform: translateY(-3px);
   box-shadow:
-    0 0 0 1px rgba(0, 229, 255, 0.12),
+    0 0 0 1px rgba(57, 255, 20, 0.22),
+    0 0 26px rgba(57, 255, 20, 0.2),
     0 18px 60px rgba(0, 0, 0, 0.5);
 }
 
@@ -696,6 +697,14 @@
   box-shadow:
     0 0 0 1px rgba(255, 43, 214, 0.08),
     var(--shadow-soft);
+}
+
+.project-card--draft:nth-child(even):hover {
+  border-color: var(--color-pink);
+  box-shadow:
+    0 0 0 1px rgba(255, 43, 214, 0.22),
+    0 0 26px rgba(255, 43, 214, 0.22),
+    0 18px 60px rgba(0, 0, 0, 0.5);
 }
 
 .project-card__media {
@@ -1398,5 +1407,30 @@
   .section--documents {
     padding-top: 48px;
     padding-bottom: 48px;
+  }
+}
+
+.section--certifications {
+  min-height: calc(100svh - 72px);
+  height: auto;
+  padding-block: clamp(1.75rem, 3.5vh, 3rem);
+}
+
+.section--certifications .section-heading {
+  margin-bottom: clamp(0.85rem, 2vh, 1.25rem);
+}
+
+.section--certifications .certificate-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(180px, clamp(180px, 25vh, 220px)));
+  gap: clamp(0.85rem, 1.5vw, 1.25rem);
+  margin-top: 0;
+}
+
+@media (max-width: 760px) {
+  .section--certifications .certificate-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
   }
 }
