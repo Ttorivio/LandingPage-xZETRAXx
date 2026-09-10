@@ -39,6 +39,8 @@ export interface SiteProfile {
     whatsappUrl: string;
     youtubeUrl: string;
     youtubeVideosUrl: string;
+    tiktokUrl?: string;
+    instagramUrl?: string;
     linkedinUrl?: string;
   };
   documents: {

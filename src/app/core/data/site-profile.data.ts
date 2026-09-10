@@ -3,9 +3,9 @@ import { SiteProfile } from '../models/site-profile.model';
 const FEISAL_CERTIFICATE = {
   title: 'Selecci\u00f3n oficial \u2014 13.\u00aa Muestra FEISAL',
   description:
-    'El cortometraje Salvia, con participaci\u00f3n de Sebasti\u00e1n Peredo Molina, fue seleccionado para representar a Diakonia\u2013Universidad Cat\u00f3lica Boliviana \u201cSan Pablo\u201d en la 13.\u00aa Muestra FEISAL 2024\u20132025. Esta muestra re\u00fane producciones de carreras audiovisuales de distintos pa\u00edses de Am\u00e9rica Latina y promueve la circulaci\u00f3n de nuevas obras y el intercambio entre instituciones de formaci\u00f3n cinematogr\u00e1fica de la regi\u00f3n.',
+    'Particip\u00e9 en el cortometraje Salvia, seleccionado para representar a Diakonia\u2013Universidad Cat\u00f3lica Boliviana \u201cSan Pablo\u201d en la 13.\u00aa Muestra FEISAL 2024\u20132025. Esta muestra re\u00fane producciones de carreras audiovisuales de distintos pa\u00edses de Am\u00e9rica Latina y promueve la circulaci\u00f3n de nuevas obras y el intercambio entre instituciones de formaci\u00f3n cinematogr\u00e1fica de la regi\u00f3n.',
   shortDescription:
-    'Salvia fue seleccionado para representar a Diakonia\u2013Universidad Cat\u00f3lica Boliviana \u201cSan Pablo\u201d en la 13.\u00aa Muestra FEISAL, un espacio de exhibici\u00f3n e intercambio que re\u00fane producciones audiovisuales estudiantiles de Am\u00e9rica Latina.',
+    'Particip\u00e9 en Salvia, seleccionado para representar a Diakonia\u2013Universidad Cat\u00f3lica Boliviana \u201cSan Pablo\u201d en la 13.\u00aa Muestra FEISAL, un espacio de exhibici\u00f3n e intercambio que re\u00fane producciones audiovisuales estudiantiles de Am\u00e9rica Latina.',
   highlights: 'SALVIA \u00b7 2024\u20132025 \u00b7 REPRESENTACI\u00d3N INSTITUCIONAL',
   imageUrl: 'images/certificadoFEISAL.jpg',
   imageAlt: 'Certificado de selecci\u00f3n de Salvia para la 13.\u00aa Muestra FEISAL 2024\u20132025.',
@@ -30,9 +30,9 @@ const whatsappMessage = encodeURIComponent(
 const THESIS_CERTIFICATE = {
   title: 'Tesis de grado con calificaci\u00f3n m\u00e1xima',
   description:
-    'Sebasti\u00e1n Peredo defendi\u00f3 su tesis de grado titulada El lenguaje de la animaci\u00f3n como narrativa expresiva: un an\u00e1lisis de los recursos audiovisuales en Demon Slayer (2019\u20132025). El tribunal de Diakonia\u2013Universidad Cat\u00f3lica Boliviana \u201cSan Pablo\u201d aprob\u00f3 el trabajo por unanimidad con una calificaci\u00f3n de 100/100, destacando la investigaci\u00f3n realizada y la aplicaci\u00f3n de la teor\u00eda en sus resultados.',
+    'Defend\u00ed mi tesis de grado titulada El lenguaje de la animaci\u00f3n como narrativa expresiva: un an\u00e1lisis de los recursos audiovisuales en Demon Slayer (2019\u20132025). El tribunal de Diakonia\u2013Universidad Cat\u00f3lica Boliviana \u201cSan Pablo\u201d aprob\u00f3 mi trabajo por unanimidad con una calificaci\u00f3n de 100/100, destacando la investigaci\u00f3n realizada y la aplicaci\u00f3n de la teor\u00eda en sus resultados.',
   shortDescription:
-    'Su tesis sobre la animaci\u00f3n como recurso narrativo en Demon Slayer fue aprobada por unanimidad con una calificaci\u00f3n de 100/100, destacando la solidez de la investigaci\u00f3n y su aplicaci\u00f3n del an\u00e1lisis audiovisual.',
+    'Mi tesis sobre la animaci\u00f3n como recurso narrativo en Demon Slayer fue aprobada por unanimidad con una calificaci\u00f3n de 100/100, destacando la solidez de la investigaci\u00f3n y mi aplicaci\u00f3n del an\u00e1lisis audiovisual.',
   highlights: 'LICENCIATURA EN COMUNICACI\u00d3N AUDIOVISUAL \u00b7 DIAKONIA\u2013UCB \u00b7 2026',
   imageUrl: 'images/acta%20de%20defensa%20de%20tesis%20-%20analisis%20de%20demon%20slayer.png',
   imageAlt: 'Vista previa del acta de defensa de tesis con calificaci\u00f3n 100/100.',
@@ -42,9 +42,9 @@ const THESIS_CERTIFICATE = {
 const PODCAST_CERTIFICATE = {
   title: 'Ganador a Mejor Podcast',
   description:
-    'Sebasti\u00e1n Peredo fue reconocido como ganador en la categor\u00eda Mejor Podcast por la producci\u00f3n Empatizando, durante el VII Festival de Producci\u00f3n Audiovisual Universitaria de Diakonia. El reconocimiento destaca su trabajo en la creaci\u00f3n y desarrollo de contenidos sonoros dentro del \u00e1mbito acad\u00e9mico audiovisual.',
+    'Fui reconocido como ganador en la categor\u00eda Mejor Podcast por la producci\u00f3n Empatizando, durante el VII Festival de Producci\u00f3n Audiovisual Universitaria de Diakonia. El reconocimiento destaca mi trabajo en la creaci\u00f3n y desarrollo de contenidos sonoros dentro del \u00e1mbito acad\u00e9mico audiovisual.',
   shortDescription:
-    'Reconocimiento a Empatizando en el VII Festival de Producci\u00f3n Audiovisual Universitaria de Diakonia.',
+    'Fui reconocido por Empatizando en el VII Festival de Producci\u00f3n Audiovisual Universitaria de Diakonia.',
   highlights: '\u201cEMPATIZANDO\u201d \u00b7 VII FESTIVAL DE PRODUCCI\u00d3N AUDIOVISUAL UNIVERSITARIA \u00b7 2023',
   imageUrl: 'images/premio%20a%20mejor%20podcast-empatizando.png',
   imageAlt: 'Vista previa del certificado de Mejor Podcast por Empatizando.',
@@ -54,9 +54,9 @@ const PODCAST_CERTIFICATE = {
 const MAGAZINE_CERTIFICATE = {
   title: 'Ganador a Mejor Revista Informativa',
   description:
-    'Sebasti\u00e1n Peredo obtuvo el reconocimiento a Mejor Revista Informativa por la producci\u00f3n La hora del Chango, presentada en el VII Festival de Producci\u00f3n Audiovisual Universitaria de Diakonia. Este logro reconoce su participaci\u00f3n en el desarrollo de una propuesta informativa concebida desde el lenguaje y la producci\u00f3n audiovisual.',
+    'Obtuve el reconocimiento a Mejor Revista Informativa por la producci\u00f3n La hora del Chango, presentada en el VII Festival de Producci\u00f3n Audiovisual Universitaria de Diakonia. Este logro reconoce mi participaci\u00f3n en el desarrollo de una propuesta informativa concebida desde el lenguaje y la producci\u00f3n audiovisual.',
   shortDescription:
-    'Reconocimiento a La hora del Chango en el VII Festival de Producci\u00f3n Audiovisual Universitaria de Diakonia.',
+    'Obtuve el reconocimiento por La hora del Chango en el VII Festival de Producci\u00f3n Audiovisual Universitaria de Diakonia.',
   highlights: '\u201cLA HORA DEL CHANGO\u201d \u00b7 VII FESTIVAL DE PRODUCCI\u00d3N AUDIOVISUAL UNIVERSITARIA \u00b7 2023',
   imageUrl: 'images/mejor%20revista%20informariva-%20la%20hora%20del%20chango.png',
   imageAlt: 'Vista previa del certificado de Mejor Revista Informativa por La hora del Chango.',
@@ -117,7 +117,9 @@ export const SITE_PROFILE: SiteProfile = {
     whatsappDisplay: '+591 60976052',
     whatsappUrl: `https://wa.me/59160976052?text=${whatsappMessage}`,
     youtubeUrl: 'https://www.youtube.com/@xZETRAXx',
-    youtubeVideosUrl: 'https://www.youtube.com/@xZETRAXx/videos'
+    youtubeVideosUrl: 'https://www.youtube.com/@xZETRAXx/videos',
+    tiktokUrl: 'https://www.tiktok.com/@xzetraxx',
+    instagramUrl: 'https://www.instagram.com/xzetraxx/'
   },
   documents: {
     cvUrl: 'documents/CV%20ATS%20Juan%20Sebastian%20Peredo%20Molina%20V2%20(1).pdf',

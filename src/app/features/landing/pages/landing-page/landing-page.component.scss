@@ -53,6 +53,7 @@
 }
 
 .brand-link__copy span {
+  font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 800;
   text-shadow:
@@ -118,6 +119,90 @@
 
 .site-footer a:hover {
   color: var(--color-text);
+}
+
+.site-footer__socials {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.site-footer__social-link {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: var(--color-muted);
+}
+
+.site-footer__social-link svg {
+  width: 21px;
+  height: 21px;
+  fill: currentColor;
+  transition: color 180ms ease, filter 180ms ease, transform 180ms ease;
+}
+
+.site-footer__social-link:hover,
+.site-footer__social-link:focus-visible {
+  color: var(--color-pink);
+}
+
+.site-footer__social-link--youtube:hover,
+.site-footer__social-link--youtube:focus-visible {
+  color: #ff0033;
+}
+
+.site-footer__social-link--youtube {
+  color: #ff0033;
+}
+
+.site-footer__social-link:hover svg,
+.site-footer__social-link:focus-visible svg {
+  filter: drop-shadow(0 0 8px rgba(255, 43, 214, 0.72));
+  transform: translateY(-1px);
+}
+
+.site-footer__social-link--youtube:hover svg,
+.site-footer__social-link--youtube:focus-visible svg {
+  filter: drop-shadow(0 0 8px rgba(255, 0, 51, 0.82));
+}
+
+.site-footer__social-link--instagram:hover,
+.site-footer__social-link--instagram:focus-visible {
+  color: var(--color-pink);
+}
+
+.site-footer__social-link--instagram {
+  color: var(--color-pink);
+}
+
+.site-footer__social-link--instagram:hover svg,
+.site-footer__social-link--instagram:focus-visible svg {
+  filter: drop-shadow(0 0 10px rgba(255, 43, 214, 0.9));
+}
+
+.site-footer__social-link--instagram svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.site-footer__social-link--instagram svg circle:last-child {
+  fill: currentColor;
+  stroke: none;
+}
+
+.site-footer__social-link--tiktok svg {
+  fill: url(#tiktok-gradient);
+}
+
+.site-footer__social-link--tiktok:hover svg,
+.site-footer__social-link--tiktok:focus-visible svg {
+  filter:
+    drop-shadow(0 0 6px rgba(37, 244, 238, 0.9))
+    drop-shadow(0 0 8px rgba(254, 44, 85, 0.85));
 }
 
 .button {
@@ -239,6 +324,7 @@
 
 .hero h1 {
   margin: 0;
+  font-family: var(--font-body);
   font-size: 5rem;
   line-height: 0.96;
   text-shadow:
@@ -1417,7 +1503,7 @@
 }
 
 .section--certifications .section-heading {
-  margin-bottom: clamp(0.85rem, 2vh, 1.25rem);
+  margin-bottom: 2rem;
 }
 
 .section--certifications .certificate-grid {
@@ -1426,6 +1512,28 @@
   grid-template-rows: repeat(2, minmax(180px, clamp(180px, 25vh, 220px)));
   gap: clamp(0.85rem, 1.5vw, 1.25rem);
   margin-top: 0;
+}
+
+.section--certifications .certificate-grid > app-certificate-card.reveal-on-scroll.certificate-reveal--from-left {
+  transform: translate3d(-56px, 22px, 0);
+}
+
+.section--certifications .certificate-grid > app-certificate-card.reveal-on-scroll.certificate-reveal--from-right {
+  transform: translate3d(56px, 22px, 0);
+}
+
+.section--certifications .certificate-grid > app-certificate-card.reveal-on-scroll.certificate-reveal--from-left.is-visible,
+.section--certifications .certificate-grid > app-certificate-card.reveal-on-scroll.certificate-reveal--from-right.is-visible {
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section--certifications .certificate-grid > app-certificate-card.reveal-on-scroll.certificate-reveal--from-left,
+  .section--certifications .certificate-grid > app-certificate-card.reveal-on-scroll.certificate-reveal--from-right,
+  .section--certifications .certificate-grid > app-certificate-card.reveal-on-scroll.certificate-reveal--from-left.is-visible,
+  .section--certifications .certificate-grid > app-certificate-card.reveal-on-scroll.certificate-reveal--from-right.is-visible {
+    transform: none;
+  }
 }
 
 @media (max-width: 760px) {

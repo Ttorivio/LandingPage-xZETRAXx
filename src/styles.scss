@@ -13,6 +13,8 @@
   --color-violet: #7128ff;
   --color-focus: #39ff14;
   --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.48);
+  --font-body: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display: "Space Grotesk", Inter, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 * {
@@ -29,8 +31,16 @@ body {
   overflow-x: hidden;
   background: var(--color-bg);
   color: var(--color-text);
-  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: var(--font-body);
   letter-spacing: 0;
+}
+
+h1,
+h2,
+h3,
+button,
+.button {
+  font-family: var(--font-display);
 }
 
 img,
