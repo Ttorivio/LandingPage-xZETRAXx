@@ -1,5 +1,10 @@
 :host {
   display: block;
+  --navbar-height: 72px;
+}
+
+section[id] {
+  scroll-margin-top: calc(var(--navbar-height) + 16px);
 }
 
 .site-shell {
@@ -316,8 +321,8 @@
   grid-template-columns: minmax(0, 1fr) minmax(320px, 430px);
   gap: 56px;
   align-items: center;
-  min-height: 78svh;
-  padding: 112px max(24px, calc((100vw - 1180px) / 2)) 64px;
+  min-height: calc(100svh - var(--navbar-height));
+  padding: clamp(24px, 5svh, 48px) max(24px, calc((100vw - 1180px) / 2));
   background:
     linear-gradient(90deg, rgba(5, 5, 9, 0.98) 0%, rgba(5, 5, 9, 0.9) 40%, rgba(5, 5, 9, 0.2) 100%),
     linear-gradient(135deg, rgba(255, 43, 214, 0.36) 0%, rgba(113, 40, 255, 0.22) 42%, rgba(0, 229, 255, 0.18) 72%, rgba(57, 255, 20, 0.18) 100%),
@@ -783,7 +788,7 @@
 }
 
 .section--projects {
-  min-height: calc(100svh - 72px);
+  min-height: calc(100svh - var(--navbar-height));
   height: auto;
   padding-block: clamp(2rem, 4vh, 4rem);
 }
@@ -1235,8 +1240,12 @@
     isolation: isolate;
     overflow: hidden;
     gap: 20px;
-    min-height: 76svh;
-    padding: 18px 16px 26px;
+    min-height: calc(100svh - var(--navbar-height));
+    padding: clamp(12px, 2.5svh, 18px) 16px clamp(20px, 3.5svh, 26px);
+  }
+
+  .site-shell {
+    --navbar-height: 90px;
   }
 
   .hero__visual {
@@ -1276,15 +1285,16 @@
     border-radius: 0;
     background: linear-gradient(
       180deg,
-      rgba(5, 5, 9, 0.54) 0%,
-      rgba(5, 5, 9, 0.78) 48%,
-      rgba(5, 5, 9, 0.98) 100%
+      rgba(5, 5, 9, 0.22) 0%,
+      rgba(5, 5, 9, 0.54) 48%,
+      rgba(5, 5, 9, 0.88) 100%
     );
   }
 
   .wave-card__screen {
     height: 100%;
     border-radius: 0;
+    background: url('/images/zetrax-profile.jpg') center 24% / cover no-repeat;
   }
 
   .wave-card__screen img {
@@ -1292,7 +1302,7 @@
   }
 
   .wave-card__screen::before {
-    background: linear-gradient(180deg, rgba(5, 5, 9, 0.16), rgba(5, 5, 9, 0.72));
+    background: linear-gradient(180deg, rgba(5, 5, 9, 0.08), rgba(5, 5, 9, 0.42));
   }
 
   .wave-card__name {
@@ -1351,8 +1361,8 @@
   }
 
   .wave-card {
-    width: min(58vw, 168px);
-    padding: 8px;
+    width: 100%;
+    padding: 0;
   }
 
   .wave-card::before {
@@ -1419,9 +1429,9 @@
 
 @media (min-width: 921px) and (max-height: 820px) {
   .hero {
-    min-height: calc(100svh - 72px);
-    padding-top: clamp(64px, 8svh, 76px);
-    padding-bottom: clamp(32px, 5svh, 44px);
+    min-height: calc(100svh - var(--navbar-height));
+    padding-top: clamp(24px, 5svh, 40px);
+    padding-bottom: clamp(24px, 5svh, 40px);
     gap: 44px;
   }
 
@@ -1467,7 +1477,7 @@
 }
 
 .section--certifications {
-  min-height: calc(100svh - 72px);
+  min-height: calc(100svh - var(--navbar-height));
   height: auto;
   padding-block: clamp(1.75rem, 3.5vh, 3rem);
 }
