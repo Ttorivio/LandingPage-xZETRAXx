@@ -24,7 +24,7 @@ const SAMPLE_CERTIFICATE = {
 };
 
 const whatsappMessage = encodeURIComponent(
-  'Hola, Sebastián. Vi tu portfolio y quiero contarte una idea para contenido digital.'
+  'Hola, Sebastián. Vi tu portafolio y quiero contarte una idea para contenido digital.'
 );
 
 const THESIS_CERTIFICATE = {
