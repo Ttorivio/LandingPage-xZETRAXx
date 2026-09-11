@@ -1237,11 +1237,13 @@ section[id] {
   }
 
   .hero {
-    isolation: isolate;
-    overflow: hidden;
-    gap: 20px;
-    min-height: calc(100svh - var(--navbar-height));
-    padding: clamp(12px, 2.5svh, 18px) 16px clamp(20px, 3.5svh, 26px);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: auto;
+    height: auto;
+    gap: 32px;
+    padding: 28px 24px 48px;
   }
 
   .site-shell {
@@ -1249,11 +1251,17 @@ section[id] {
   }
 
   .hero__visual {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
+    position: relative;
+    inset: auto;
+    z-index: 1;
     display: block;
+    order: -1;
+    width: min(78vw, 320px);
+    aspect-ratio: 1 / 1;
+    min-height: 0;
+    margin-inline: auto;
     pointer-events: none;
+    visibility: visible;
   }
 
   .hero__visual.reveal-on-scroll {
@@ -1263,16 +1271,21 @@ section[id] {
   }
 
   .wave-card {
-    position: absolute;
-    inset: 0;
+    position: relative;
+    inset: auto;
     width: 100%;
     height: 100%;
-    aspect-ratio: auto;
-    border: 0;
-    border-radius: 0;
-    padding: 0;
-    background: transparent;
-    box-shadow: none;
+    aspect-ratio: 1 / 1;
+    border: 1px solid rgba(57, 255, 20, 0.44);
+    border-radius: 8px;
+    padding: 12px;
+    background:
+      linear-gradient(145deg, rgba(255, 43, 214, 0.15), rgba(0, 229, 255, 0.08) 42%, rgba(57, 255, 20, 0.12)),
+      rgba(5, 5, 9, 0.68);
+    box-shadow:
+      0 0 0 1px rgba(0, 229, 255, 0.16),
+      0 0 38px rgba(57, 255, 20, 0.16),
+      0 22px 56px rgba(0, 0, 0, 0.42);
   }
 
   .wave-card::before {
@@ -1280,29 +1293,30 @@ section[id] {
   }
 
   .wave-card::after {
-    inset: 0;
-    border: 0;
-    border-radius: 0;
-    background: linear-gradient(
-      180deg,
-      rgba(5, 5, 9, 0.22) 0%,
-      rgba(5, 5, 9, 0.54) 48%,
-      rgba(5, 5, 9, 0.88) 100%
-    );
+    inset: -7px;
+    border: 1px solid rgba(255, 43, 214, 0.28);
+    border-radius: 8px;
+    background: none;
   }
 
   .wave-card__screen {
     height: 100%;
-    border-radius: 0;
-    background: url('/images/zetrax-profile.jpg') center 24% / cover no-repeat;
+    border-radius: 8px;
+    background: #050509;
   }
 
   .wave-card__screen img {
     display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
   .wave-card__screen::before {
-    background: linear-gradient(180deg, rgba(5, 5, 9, 0.08), rgba(5, 5, 9, 0.42));
+    background:
+      linear-gradient(180deg, rgba(5, 5, 9, 0) 48%, rgba(5, 5, 9, 0.78) 100%),
+      repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 4px);
   }
 
   .wave-card__name {
@@ -1312,6 +1326,10 @@ section[id] {
   .hero__content {
     position: relative;
     z-index: 1;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
   }
 
   .hero h1 {
@@ -1332,7 +1350,7 @@ section[id] {
   }
 
   .hero__content {
-    width: 330px;
+    width: 100%;
   }
 
   .hero__subtitle,
@@ -1362,7 +1380,7 @@ section[id] {
 
   .wave-card {
     width: 100%;
-    padding: 0;
+    padding: 12px;
   }
 
   .wave-card::before {

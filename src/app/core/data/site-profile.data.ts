@@ -75,7 +75,7 @@ export const SITE_PROFILE: SiteProfile = {
     subtitle: 'Ideas, guiones y edición para contenido que conecta.',
     presentation:
       'Soy Juan Sebastián Peredo Molina, licenciado en Comunicación Audiovisual y creador de xZETRAXx. Desarrollo ideas, estructuro guiones y edito contenido para YouTube, TikTok, Shorts y Reels.',
-    profileImageUrl: 'images/zetrax-profile.jpg',
+    profileImageUrl: '/images/zetrax-profile.jpg',
     profileImageAlt: 'Imagen de perfil del canal ZETRAX, identidad visual de xZETRAXx.'
   },
   biography: [
