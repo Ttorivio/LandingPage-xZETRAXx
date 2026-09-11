@@ -1502,6 +1502,18 @@ section[id] {
   }
 }
 
+@media (min-width: 1800px) and (min-aspect-ratio: 21 / 9) {
+  #proyectos,
+  #cv,
+  #certificaciones,
+  #contacto {
+    min-height: auto;
+    height: auto;
+    padding-top: clamp(40px, 5vh, 64px);
+    padding-bottom: clamp(48px, 6vh, 80px);
+  }
+}
+
 .section--certifications {
   min-height: calc(100svh - var(--navbar-height));
   height: auto;
