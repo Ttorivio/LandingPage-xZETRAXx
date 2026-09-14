@@ -773,6 +773,63 @@ section[id] {
   background: linear-gradient(90deg, var(--color-accent), var(--color-teal), var(--color-pink));
 }
 
+@media (min-width: 921px) {
+  .section--services .service-card.reveal-on-scroll.is-visible {
+    animation: service-card-reveal 720ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    will-change: opacity, filter, transform;
+  }
+
+  .section--services .service-card.reveal-on-scroll.is-visible:nth-child(2) {
+    animation-delay: 220ms;
+  }
+
+  .section--services .service-card.reveal-on-scroll.is-visible:nth-child(3) {
+    animation-delay: 440ms;
+  }
+
+  .section--services .service-card.reveal-on-scroll.is-visible:nth-child(4) {
+    animation-delay: 660ms;
+  }
+
+  .service-card::before {
+    background: linear-gradient(
+      90deg,
+      var(--color-accent) 0%,
+      var(--color-teal) 32%,
+      var(--color-pink) 50%,
+      var(--color-teal) 68%,
+      var(--color-accent) 100%
+    );
+    background-size: 200% 100%;
+    animation: service-card-border-flow 12s linear infinite;
+    will-change: background-position;
+  }
+}
+
+@keyframes service-card-reveal {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translate3d(0, 22px, 0);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes service-card-border-flow {
+  from {
+    background-position: 100% 50%;
+  }
+
+  to {
+    background-position: -100% 50%;
+  }
+}
+
 .service-card:nth-child(even) {
   border-color: rgba(255, 43, 214, 0.34);
 }
@@ -1098,6 +1155,15 @@ section[id] {
 }
 
 @media (max-width: 920px) {
+  .section--services .service-card.reveal-on-scroll,
+  .section--services .service-card.reveal-on-scroll.is-visible {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+    animation: none;
+  }
+
   .site-header {
     grid-template-columns: 1fr auto;
     gap: 16px 24px;
@@ -1546,6 +1612,19 @@ section[id] {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .section--services .service-card.reveal-on-scroll,
+  .section--services .service-card.reveal-on-scroll.is-visible {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+    animation: none;
+  }
+
+  .service-card::before {
+    animation: none;
+  }
+
   .section--certifications .certificate-grid > app-certificate-card.reveal-on-scroll.certificate-reveal--from-left,
   .section--certifications .certificate-grid > app-certificate-card.reveal-on-scroll.certificate-reveal--from-right,
   .section--certifications .certificate-grid > app-certificate-card.reveal-on-scroll.certificate-reveal--from-left.is-visible,

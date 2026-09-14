@@ -127,8 +127,8 @@
         </div>
 
         <div class="services-grid">
-          @for (service of profile.services; track service.title; let index = $index) {
-            <article class="service-card" [appRevealOnScroll]="(index * 90) + 'ms'">
+          @for (service of profile.services; track service.title) {
+            <article class="service-card" appRevealOnScroll>
               <h3>{{ service.title }}</h3>
               <p>{{ service.description }}</p>
             </article>
