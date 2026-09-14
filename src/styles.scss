@@ -88,6 +88,20 @@ button {
   transform: translate3d(0, 0, 0);
 }
 
+@keyframes service-card-enter-up {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translate3d(0, 22px, 0);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
